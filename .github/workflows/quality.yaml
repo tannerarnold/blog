@@ -1,4 +1,8 @@
+---
 name: Quality Checks
+
+# Suggestion from Checkov, probably best to heed it.
+permissions: read-all
 
 on:
   # Only lint the main branch when code is pushed
