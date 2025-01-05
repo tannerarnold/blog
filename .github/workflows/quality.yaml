@@ -1,0 +1,30 @@
+name: Quality Checks
+
+on:
+  # Only lint the main branch when code is pushed
+  # or a pull request is made into the main branch
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  code-quality:
+    name: Check Code Quality
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: read
+      # So CI can report on whether the repository is passing linting
+      statuses: write
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Lint Repository
+        uses: super-linter/super-linter/slim@v7.2.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
