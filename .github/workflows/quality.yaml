@@ -38,5 +38,5 @@ jobs:
         if: ${{ failure() }}
         with:
           name: linting-output-${{ github.run_id }}-${{ github.run_number }}
-          path: ${{ env.DEFAULT_WORKSPACE }}/${{ env.SUPER_LINTER_OUTPUT_DIRECTORY_NAME }}/${{ env.SUPER_LINTER_SUMMARY_FILE_NAME }}
+          path: /tmp/lint/super-linter-output/super-linter-summary.md
           retention-days: 1
