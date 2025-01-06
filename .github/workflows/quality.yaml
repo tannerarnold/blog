@@ -2,7 +2,7 @@
 name: Quality Checks
 
 # Suggestion from Checkov, probably best to heed it.
-# permissions: read-all
+permissions: read-all
 
 on:
   # Only lint the main branch when code is pushed
@@ -32,11 +32,14 @@ jobs:
         uses: super-linter/super-linter/slim@v7.2.1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CREATE_LOG_FILE: true
           SAVE_SUPER_LINTER_SUMMARY: true
       - name: Upload Artifacts (If Unsuccessful)
         uses: actions/upload-artifact@v4
         if: ${{ failure() }}
         with:
-          name: linting-output-${{ github.run_id }}-${{ github.run_number }}
-          path: /tmp/lint/super-linter-output/super-linter-summary.md
+          name: linting-output-${{ github.run_number }}-${{ github.run_attempt }}
+          path: |
+            super-linter-output/super-linter-summary.md
+            super-linter.log
           retention-days: 1
