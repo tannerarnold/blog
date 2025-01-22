@@ -17,6 +17,6 @@
   "tsc-alias": {
     "resolveFullPaths": true
   },
-  "include": ["src/**/*.ts", "src/**/*.svelte", "src/**/*.css"],
+  "include": ["src/**/*.ts", "src/**/*.svelte", "src/**/*.css", "*.ts", "*.js"],
   "exclude": ["node_modules/*"]
 }
