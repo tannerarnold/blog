@@ -34,13 +34,20 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CREATE_LOG_FILE: true
           SAVE_SUPER_LINTER_SUMMARY: true
-          FILTER_REGEX_EXCLUDE: 'src/db/migrations/*'
+          # Shouldn't lint auto generated migration files
+          FILTER_REGEX_EXCLUDE: |
+            'src/db/migrations/*'
+          # Typescript Standard is borked,
+          # maybe when they fix it
+          VALIDATE_TYPESCRIPT_STANDARD: false
       - name: Upload Artifacts (If Unsuccessful)
         uses: actions/upload-artifact@v4
-        # If any of the prior steps failed (most likely being the linter), upload the logs
+        # If any of the prior steps failed
+        # (most likely being the linter), upload the logs
         if: ${{ failure() }}
         with:
-          name: linting-output-${{ github.run_number }}-${{ github.run_attempt }}
+          name: |
+            linting-output-${{ github.run_number }}-${{ github.run_attempt }}
           path: |
             super-linter-output/super-linter-summary.md
             super-linter.log
