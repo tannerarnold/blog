@@ -1,0 +1,22 @@
+{
+  "extends": "@tsconfig/svelte/tsconfig.json",
+  "compilerOptions": {
+    "moduleResolution": "bundler",
+    "jsx": "react",
+    "jsxFactory": "Html.createElement",
+    "jsxFragmentFactory": "Html.Fragment",
+    "plugins": [{ "name": "@kitajs/ts-html-plugin" }],
+    "paths": {
+      "@lib/*": ["./src/lib/*"],
+      "@pages/*": ["./src/pages/*"],
+      "@api/*": ["./src/api/*"],
+      "@renderer/*": ["./src/renderer/*"]
+    },
+    "outDir": "dist"
+  },
+  "tsc-alias": {
+    "resolveFullPaths": true
+  },
+  "include": ["src/**/*.ts", "src/**/*.svelte", "src/**/*.css"],
+  "exclude": ["node_modules/*"]
+}
