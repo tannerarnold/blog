@@ -1,8 +1,8 @@
-@import url(https://fonts.googleapis.com/css2?family=Manrope:wght@200..800);
-@import url(https://fonts.googleapis.com/css2?family=Petrona:ital,wght@0,100..900;1,100..900);
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800');
+@import url('https://fonts.googleapis.com/css2?family=Petrona:ital,wght@0,100..900;1,100..900');
 
 * {
-  font-family: "Manrope", sans-serif;
+  font-family: Manrope, sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -11,12 +11,12 @@
 /* Root Colors */
 
 :root {
-  --black: rgb(0, 0, 0);
-  --half-black: rgba(0, 0, 0, 0.5);
-  --transparent: rgba(0, 0, 0, 0);
-  --navy-blue: rgb(0, 47, 108);
-  --navy-blue-hover: rgb(0, 14, 32);
-  --white: rgb(255, 255, 255);
+  --black: rgb(0 0 0);
+  --half-black: rgba(0 0 0 / 50%);
+  --transparent: rgba(0 0 0 / 0%);
+  --navy-blue: rgb(0 47 108);
+  --navy-blue-hover: rgb(0 14 32);
+  --white: rgb(255 255 255);
 }
 
 /* Layout */
@@ -87,12 +87,12 @@
 
       & h1 {
         font-size: 5rem;
-        padding: 1rem 0rem;
+        padding: 1rem 0;
       }
 
       & h3 {
         font-size: 2rem;
-        padding: 1rem 0rem;
+        padding: 1rem 0;
       }
     }
 
@@ -167,7 +167,7 @@
 }
 
 .body-text {
-  font-family: "Petrona", serif;
+  font-family: Petrona, serif;
   font-size: 2rem;
   line-height: 2.4rem;
   text-align: justify;
@@ -224,7 +224,7 @@ a.card {
   }
 }
 
-@media screen and (min-width: 1600px) {
+@media screen and (width >= 1600px) {
   .cards {
     grid-template-columns: repeat(3, 1fr);
   }
