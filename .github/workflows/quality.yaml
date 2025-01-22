@@ -36,10 +36,13 @@ jobs:
           SAVE_SUPER_LINTER_SUMMARY: true
       - name: Upload Artifacts (If Unsuccessful)
         uses: actions/upload-artifact@v4
+        # If any of the prior steps failed (most likely being the linter), upload the logs
         if: ${{ failure() }}
         with:
           name: linting-output-${{ github.run_number }}-${{ github.run_attempt }}
           path: |
             super-linter-output/super-linter-summary.md
             super-linter.log
+          # Shouldn't need these artifacts any longer than a day,
+          # probably best to save the space on Github's servers
           retention-days: 1
