@@ -38,6 +38,9 @@ async function server() {
     prefix: '/',
   });
   fastify.decorate('db', db);
+  fastify.get('/api/health', (req, res) => {
+    return res.code(200).send();
+  });
   fastify.register(blog, { prefix: '/api/blogs' });
   fastify.use(async (req, res, next) => {
     if (
@@ -46,7 +49,8 @@ async function server() {
       (req.method === 'GET' &&
         req.originalUrl &&
         (req.originalUrl.startsWith('/assets') ||
-          req.originalUrl.startsWith('/images')))
+          req.originalUrl.startsWith('/images') ||
+          req.originalUrl.startsWith('/api')))
     )
       return next();
     const pageContextInit = {

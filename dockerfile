@@ -10,19 +10,20 @@ RUN npm run db:migrate
 RUN npm run build
 
 FROM node:23-alpine AS runner
-COPY --from=build /app/dist /app
-COPY --from=build /app/db /app/db
-COPY package.json package-lock.json /app/
+RUN adduser -D noderunner
+
+USER noderunner
+
+COPY --from=build --chown=noderunner /app/dist /app
+COPY --from=build --chown=noderunner /app/db /app/db
+COPY --chown=noderunner package.json package-lock.json /app/
 VOLUME /app/db
 WORKDIR /app
 
 RUN npm i --omit=dev
-RUN ls
 
-ENV DATABASE_URL=file:/app/db/db.db
-ENV NODE_ENV="production"
-ENV ASSET_PATH="client"
-ENV SERVER_ENTRY_PATH="server/entry.mjs"
+ENV DATABASE_URL=file:/app/db/db.db NODE_ENV="production" ASSET_PATH="client" SERVER_ENTRY_PATH="server/entry.mjs"
+HEALTHCHECK --interval=60s --timeout=15s --start-period=5s --retries=3 CMD wget --no-verbose --tries=1 --spider http://0.0.0.0:5173/api/health || exit 1
 
 EXPOSE 5173
 
