@@ -1,7 +1,7 @@
 declare global {
   namespace Vike {
     interface PageContext {
-      props: any;
+      props: unknown;
     }
   }
 }

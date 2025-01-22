@@ -16,7 +16,7 @@ export const posts = sqliteTable(
   (table) => [
     index('date_posted_idx').on(table.date_posted),
     index('slug_idx').on(table.slug),
-  ]
+  ],
 );
 
 export type Post = typeof posts.$inferSelect;

@@ -1,8 +1,7 @@
 import { db } from '@lib/db/db';
 import { posts } from '@lib/db/schema/posts';
-import type { PageContext } from 'vike/types';
 
-export async function data(pageContext: PageContext) {
+export async function data() {
   const postsFromDb = await db
     .select({
       id: posts.id,

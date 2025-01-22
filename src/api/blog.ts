@@ -5,7 +5,7 @@ import type { FastifyPluginCallback } from 'fastify';
 export const blog: FastifyPluginCallback = (
   fastify: FastifyInstance,
   opts,
-  done
+  done,
 ) => {
   fastify.post<{ Body: Omit<Post, 'id' | 'date_posted'> }>(
     '/',
@@ -18,7 +18,7 @@ export const blog: FastifyPluginCallback = (
         content,
       });
       return res.redirect(`/blog/${slug}`);
-    }
+    },
   );
 
   done();

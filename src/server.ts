@@ -74,6 +74,7 @@ async function server() {
   });
 
   fastify.listen({ host: '0.0.0.0', port: 5173 }, (err, address) => {
+    fastify.log.info(`Now listening at ${address}...`);
     if (err) {
       fastify.log.error(err);
       process.exit(1);

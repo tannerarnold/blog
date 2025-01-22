@@ -2,7 +2,7 @@ import { hydrate, type Component } from 'svelte';
 import type { OnRenderClientSync, PageContext } from 'vike/types';
 
 export function onRenderClient(
-  pageContext: PageContext<{} | undefined>
+  pageContext: PageContext<object | undefined>,
 ): ReturnType<OnRenderClientSync> {
   const { Page, data, abortReason, abortStatusCode } = pageContext;
   const appElement = document.getElementById('app');

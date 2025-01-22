@@ -5,10 +5,10 @@ import type { PageContext, OnRenderHtmlAsync } from 'vike/types';
 import './styles/main.css';
 
 export async function onRenderHtml(
-  pageContext: PageContext
+  pageContext: PageContext,
 ): ReturnType<OnRenderHtmlAsync> {
   const { Page, data } = pageContext;
-  const { head, body } = render(Page as Component, { props: data as {} });
+  const { head, body } = render(Page as Component, { props: data as object });
 
   let template: string = `<!DOCTYPE html>
       <html>
