@@ -1,15 +1,15 @@
-import Fastify from "fastify";
-import Middie from "@fastify/middie";
-import path from "path";
-import { renderPage } from "vike/server";
-import { db } from "@lib/db/db";
-import { blog } from "@api/blog";
-import fastifyFormbody from "@fastify/formbody";
-import staticPlugin from "@fastify/static";
-import "dotenv/config";
+import Fastify from 'fastify';
+import Middie from '@fastify/middie';
+import path from 'path';
+import { renderPage } from 'vike/server';
+import { db } from '@lib/db/db';
+import { blog } from '@api/blog';
+import fastifyFormbody from '@fastify/formbody';
+import staticPlugin from '@fastify/static';
+import 'dotenv/config';
 await import(path.resolve(process.env.SERVER_ENTRY_PATH!));
 
-declare module "fastify" {
+declare module 'fastify' {
   interface FastifyInstance {
     db: typeof db;
   }
@@ -26,31 +26,31 @@ async function server() {
       disableRequestLogging: true,
       logger: {
         transport: {
-          target: "pino-pretty",
+          target: 'pino-pretty',
         },
       },
     });
 
-  await fastify.register(Middie, { hook: "onRequest" });
+  await fastify.register(Middie, { hook: 'onRequest' });
   fastify.register(fastifyFormbody);
   fastify.register(staticPlugin, {
     root: path.resolve(process.env.ASSET_PATH!),
-    prefix: "/",
+    prefix: '/',
   });
-  fastify.decorate("db", db);
-  fastify.register(blog, { prefix: "/api/blogs" });
+  fastify.decorate('db', db);
+  fastify.register(blog, { prefix: '/api/blogs' });
   fastify.use(async (req, res, next) => {
     if (
       !req.method ||
-      req.method !== "GET" ||
-      (req.method === "GET" &&
+      req.method !== 'GET' ||
+      (req.method === 'GET' &&
         req.originalUrl &&
-        (req.originalUrl.startsWith("/assets") ||
-          req.originalUrl.startsWith("/images")))
+        (req.originalUrl.startsWith('/assets') ||
+          req.originalUrl.startsWith('/images')))
     )
       return next();
     const pageContextInit = {
-      urlOriginal: req.originalUrl ?? "",
+      urlOriginal: req.originalUrl ?? '',
       headersOriginal: req.headers,
       cookies: req.headers.cookies,
       log: fastify.log,
@@ -69,7 +69,7 @@ async function server() {
     res.end(httpResponse.body);
   });
 
-  fastify.listen({ host: "0.0.0.0", port: 5173 }, (err, address) => {
+  fastify.listen({ host: '0.0.0.0', port: 5173 }, (err, address) => {
     if (err) {
       fastify.log.error(err);
       process.exit(1);

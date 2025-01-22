@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Icon } from "lucide-svelte";
+  import type { Icon } from 'lucide-svelte';
 
   type CardProps = {
     href?: string;

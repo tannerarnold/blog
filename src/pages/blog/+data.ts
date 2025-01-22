@@ -1,6 +1,6 @@
-import { db } from "@lib/db/db";
-import { posts } from "@lib/db/schema/posts";
-import type { PageContext } from "vike/types";
+import { db } from '@lib/db/db';
+import { posts } from '@lib/db/schema/posts';
+import type { PageContext } from 'vike/types';
 
 export async function data(pageContext: PageContext) {
   const postsFromDb = await db

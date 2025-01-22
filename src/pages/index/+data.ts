@@ -1,4 +1,4 @@
-import type { DataAsync, PageContext } from "vike/types";
+import type { DataAsync, PageContext } from 'vike/types';
 
 export async function data(
   pageContext: PageContext

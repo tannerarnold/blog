@@ -1,9 +1,9 @@
 <script lang="ts">
-  import Card from "@lib/components/Card.svelte";
-  import Layout from "@lib/components/Layout.svelte";
-  import Checkmark from "lucide-svelte/icons/check";
-  import Brackets from "lucide-svelte/icons/brackets";
-  import User from "lucide-svelte/icons/user";
+  import Card from '@lib/components/Card.svelte';
+  import Layout from '@lib/components/Layout.svelte';
+  import Checkmark from 'lucide-svelte/icons/check';
+  import Brackets from 'lucide-svelte/icons/brackets';
+  import User from 'lucide-svelte/icons/user';
 </script>
 
 <Layout>

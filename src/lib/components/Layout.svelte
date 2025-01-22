@@ -1,45 +1,45 @@
 <script lang="ts">
-  import ArrowUp from "lucide-svelte/icons/arrow-up";
-  import ArrowDown from "lucide-svelte/icons/arrow-down";
+  import ArrowUp from 'lucide-svelte/icons/arrow-up';
+  import ArrowDown from 'lucide-svelte/icons/arrow-down';
   let { children, pageTitle }: { children: any; pageTitle?: string } = $props();
   let scroll = $state(0);
 
   $effect(() => {
-    window.addEventListener("scroll", (ev) => {
-      const nav = document.getElementById("nav")!;
+    window.addEventListener('scroll', (ev) => {
+      const nav = document.getElementById('nav')!;
       const scrolled = window.scrollY;
       scroll = scrolled;
       const height = window.innerHeight;
       if (scrolled < height) {
-        nav.style.height = (height - scrolled * 0.5).toFixed(1) + "px";
+        nav.style.height = (height - scrolled * 0.5).toFixed(1) + 'px';
       }
     });
   });
 
   function scrollToTop() {
-    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
   }
 
   function scrollToContent() {
-    window.scrollTo({ top: window.innerHeight, left: 0, behavior: "smooth" });
+    window.scrollTo({ top: window.innerHeight, left: 0, behavior: 'smooth' });
   }
 
   const pages = [
     {
-      title: "Home",
-      href: "/",
+      title: 'Home',
+      href: '/',
     },
     {
-      title: "About",
-      href: "/about",
+      title: 'About',
+      href: '/about',
     },
     {
-      title: "Blog",
-      href: "/blog",
+      title: 'Blog',
+      href: '/blog',
     },
     {
-      title: "Contact",
-      href: "/contact",
+      title: 'Contact',
+      href: '/contact',
     },
   ];
 </script>

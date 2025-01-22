@@ -1,6 +1,6 @@
 <script lang="ts">
-  import Layout from "@lib/components/Layout.svelte";
-  import Card from "@lib/components/Card.svelte";
+  import Layout from '@lib/components/Layout.svelte';
+  import Card from '@lib/components/Card.svelte';
   type BlogListingProps = {
     posts: {
       id: string;

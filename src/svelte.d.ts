@@ -1,3 +1,3 @@
-declare module "*.svelte";
+declare module '*.svelte';
 
 export {};
