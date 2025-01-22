@@ -11,6 +11,9 @@ jobs:
   build-container:
     name: Build Container And Publish To ghcr.io
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
     steps:
       - name: Checkout Release
         uses: actions/checkout@v4
