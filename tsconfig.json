@@ -2,10 +2,6 @@
   "extends": "@tsconfig/svelte/tsconfig.json",
   "compilerOptions": {
     "moduleResolution": "bundler",
-    "jsx": "react",
-    "jsxFactory": "Html.createElement",
-    "jsxFragmentFactory": "Html.Fragment",
-    "plugins": [{ "name": "@kitajs/ts-html-plugin" }],
     "paths": {
       "@lib/*": ["./src/lib/*"],
       "@pages/*": ["./src/pages/*"],
