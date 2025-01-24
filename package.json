@@ -5,9 +5,9 @@
   "description": "Hi there, I'm Tanner Arnold. I'm a young developer early in my career, still figuring out who I am and what life has in store for me. I go with either _he/him_ or _they/them_ pronouns.",
   "main": "index.ts",
   "scripts": {
-    "dev": "tsx src/server.ts",
+    "dev": "npm run build && node dist/server.js",
     "build": "vite build && rollup -c",
-    "preview": "vike preview",
+    "preview": "vite preview",
     "db:push": "drizzle-kit push",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
