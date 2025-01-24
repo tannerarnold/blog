@@ -11,7 +11,7 @@
     "db:push": "drizzle-kit push",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
-    "lint": "eslint --debug '**/*.ts' '**/*.js'",
+    "lint": "eslint '**/*.ts' '**/*.js'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
