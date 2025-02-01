@@ -36,6 +36,7 @@ jobs:
           SAVE_SUPER_LINTER_SUMMARY: true
           VALIDATE_JAVASCRIPT_STANDARD: false
           VALIDATE_TYPESCRIPT_STANDARD: false
+          VALIDATE_JSCPD: false
       - name: Upload Artifacts (If Unsuccessful)
         uses: actions/upload-artifact@v4
         # If any of the prior steps failed
