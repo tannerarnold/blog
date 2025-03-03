@@ -4,8 +4,7 @@ WORKDIR /app
 
 COPY . /app/
 
-RUN apk add --no-cache git make build-base
-RUN CGO_ENABLED=1 go build .
+RUN apk add --no-cache git=2.47.2-r0 make=4.4.1-r2 build-base=0.5-r3 && CGO_ENABLED=1 go build .
 
 FROM alpine:3.21 AS runner
 

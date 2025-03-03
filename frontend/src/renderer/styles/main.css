@@ -19,139 +19,6 @@
   --white: rgb(255 255 255);
 }
 
-/* Layout */
-
-.nav {
-  height: 100%;
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1fr;
-  justify-content: space-between;
-  background-image: url('/images/arnold-francisca-nPhl2x4fk2s-unsplash.jpg');
-  background-size: cover;
-  background-position: center;
-  font-family: Manrope, sans-serif;
-}
-
-.nav-content {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto;
-  justify-content: space-between;
-  width: 100%;
-  background-color: var(--transparent);
-}
-
-.nav-top {
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1fr;
-  justify-content: space-between;
-}
-
-.nav-top-left {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  z-index: 1;
-
-  & h1 {
-    padding: 1em;
-    font-size: 3rem;
-    font-weight: 800;
-  }
-}
-
-.nav-top-right {
-  display: grid;
-  grid-template-columns: 1fr;
-  font-size: 2rem;
-  padding: 1em;
-
-  & .nav-link {
-    margin: 1em;
-    color: white;
-    text-decoration: none;
-    display: flex;
-    justify-content: center;
-  }
-
-  & .nav-link:hover {
-    color: gainsboro;
-    text-decoration: underline;
-  }
-}
-
-.nav-middle {
-  display: grid;
-  grid-template-columns: 1fr;
-  background: var(--half-black);
-  z-index: 1;
-  color: var(--white);
-  padding: 2rem;
-
-  & h1 {
-    justify-self: center;
-    font-size: 5rem;
-    padding: 1rem;
-  }
-
-  & h3 {
-    justify-self: center;
-    font-size: 2rem;
-    padding: 1rem;
-  }
-}
-
-.nav-bottom {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 2rem;
-
-  & button {
-    margin: 4em;
-    border: 1px solid var(--white);
-    background-color: var(--navy-blue);
-    color: var(--white);
-  }
-
-  & button:hover {
-    background-color: var(--navy-blue-hover);
-  }
-
-  & h2 {
-    color: var(--white);
-    font-size: 4em;
-  }
-}
-
-.nav-parallax {
-  width: 100%;
-  height: 50vh;
-  background-image: url('/images/mohammad-rahmani-8qEB0fTe9Vw-unsplash.jpg');
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center;
-}
-
-.nav-parallax-overlay-one {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.navigate-button {
-  position: fixed;
-  left: calc(100vw - 6em);
-  top: calc(100vh - 6em);
-  z-index: 5;
-}
-
 /* Common Styles */
 
 .left-aligned {
@@ -322,12 +189,144 @@ form {
 
   & button {
     font-size: 1rem;
-
     font-family: Manrope, sans-serif;
     padding: 1rem 2rem;
     border-radius: 0.75em;
     color: gainsboro;
     background-color: var(--navy-blue);
+  }
+}
+
+/* Layout */
+
+.nav {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-content: space-between;
+  background-image: url('/images/arnold-francisca-nPhl2x4fk2s-unsplash.jpg');
+  background-size: cover;
+  background-position: center;
+  font-family: Manrope, sans-serif;
+}
+
+.nav-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  justify-content: space-between;
+  width: 100%;
+  background-color: var(--transparent);
+}
+
+.nav-top {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-content: space-between;
+}
+
+.nav-top-left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  z-index: 1;
+
+  & h1 {
+    padding: 1em;
+    font-size: 3rem;
+    font-weight: 800;
+  }
+}
+
+.nav-top-right {
+  display: grid;
+  grid-template-columns: 1fr;
+  font-size: 2rem;
+  padding: 1em;
+
+  & .nav-link {
+    margin: 1em;
+    color: white;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+  }
+
+  & .nav-link:hover {
+    color: gainsboro;
+    text-decoration: underline;
+  }
+}
+
+.nav-middle {
+  display: grid;
+  grid-template-columns: 1fr;
+  background: var(--half-black);
+  z-index: 1;
+  color: var(--white);
+  padding: 2rem;
+
+  & h1 {
+    justify-self: center;
+    font-size: 5rem;
+    padding: 1rem;
+  }
+
+  & h3 {
+    justify-self: center;
+    font-size: 2rem;
+    padding: 1rem;
+  }
+}
+
+.nav-parallax {
+  width: 100%;
+  height: 50vh;
+  background-image: url('/images/mohammad-rahmani-8qEB0fTe9Vw-unsplash.jpg');
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+}
+
+.nav-parallax-overlay-one {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navigate-button {
+  position: fixed;
+  left: calc(100vw - 6em);
+  top: calc(100vh - 6em);
+  z-index: 5;
+}
+
+.nav-bottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+
+  & button {
+    margin: 4em;
+    border: 1px solid var(--white);
+    background-color: var(--navy-blue);
+    color: var(--white);
+  }
+
+  & button:hover {
+    background-color: var(--navy-blue-hover);
+  }
+
+  & h2 {
+    color: var(--white);
+    font-size: 4em;
   }
 }
 
@@ -350,7 +349,6 @@ form {
   box-shadow: 1rem 1rem 1rem var(--half-black);
   overflow: hidden;
   position: relative;
-  /* width: clamp(8rem, 95vw, 95vw); */
 }
 
 a.card {
@@ -406,15 +404,19 @@ a.card {
   .cards {
     grid-template-columns: repeat(2, 1fr);
   }
+
   .nav.nav-short {
     grid-template-columns: repeat(2, 1fr);
   }
+
   .nav-top {
     grid-template-columns: repeat(2, 1fr);
   }
+
   .nav-top-left {
     justify-content: left;
   }
+
   .nav-top-right {
     grid-template-columns: repeat(4, 1fr);
   }
