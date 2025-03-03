@@ -1,6 +1,0 @@
-staged-posts/
-act-event-files/
-node_modules/
-dist/
-db.db
-*.env*

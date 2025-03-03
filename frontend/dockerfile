@@ -1,0 +1,24 @@
+FROM node:23-alpine AS build
+
+WORKDIR /app
+COPY . /app/
+RUN npm ci && npm run build
+
+FROM node:23-alpine AS runner
+RUN adduser -D noderunner
+
+USER noderunner
+
+COPY --from=build --chown=noderunner /app/dist /app
+COPY --chown=noderunner package.json package-lock.json /app/
+VOLUME /app/db
+WORKDIR /app
+
+RUN npm i --omit=dev
+
+ENV NODE_ENV="production" ASSET_PATH="client" SERVER_ENTRY_PATH="server/entry.mjs"
+HEALTHCHECK --interval=60s --timeout=15s --start-period=5s --retries=3 CMD wget --no-verbose --tries=1 --spider http://0.0.0.0:5173/api/health || exit 1
+
+EXPOSE 5173
+
+CMD ["node", "server.js"]

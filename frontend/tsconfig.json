@@ -1,0 +1,17 @@
+{
+  "extends": "@tsconfig/svelte/tsconfig.json",
+  "compilerOptions": {
+    "lib": ["ES2021"],
+    "moduleResolution": "bundler",
+    "paths": {
+      "@lib/*": ["./src/lib/*"],
+      "@pages/*": ["./src/pages/*"],
+      "@api/*": ["./src/api/*"],
+      "@type/*": ["./src/types/*"],
+      "@renderer/*": ["./src/renderer/*"]
+    },
+    "outDir": "dist"
+  },
+  "include": ["src/**/*.ts", "src/**/*.svelte", "src/**/*.css", "*.ts", "*.js"],
+  "exclude": ["node_modules/*"]
+}
